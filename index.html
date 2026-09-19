@@ -133,8 +133,8 @@
       <div class="step">얻는 것<br>갈아타기 1차 판단 신호</div>
     </div>
     <div style="margin-top:28px;">
-      <a class="cta disabled" aria-disabled="true">F-01 앱 화면 준비 중 <span class="arrow">…</span></a>
-      <p class="cta-note">완성되면 이 버튼이 <code>app.html</code>로 연결됩니다(M6-02에서 연결).</p>
+      <a class="cta" href="./app.html">미분양 신호 확인하기 <span class="arrow">→</span></a>
+      <p class="cta-note">누르면 <code>app.html</code>에서 면적 구간을 골라 4개월 추이·변화율을 바로 확인할 수 있습니다.</p>
     </div>
   </div>
 </section>
@@ -143,11 +143,13 @@
 <section class="sect">
   <div class="wrap">
     <p class="eyebrow">테스트 결과</p>
-    <h2>정상·빈값·오류, 세 가지로 확인합니다</h2>
-    <div class="placeholder">
-      R-01(정상)·R-02(빈값)·R-03(오류) 테스트는 아직 실행 전입니다.<br>
-      M6-02 구현 후 <code>test_log.md</code>에 실제 결과가 채워집니다.
+    <h2>정상·빈값·오류, 세 가지로 확인했습니다</h2>
+    <div class="list-card">
+      <div class="row"><span class="label">R-01 정상 · 전용 60-85㎡ 선택</span><span class="value" style="font-size:15px;">−80.5% 표시</span><span class="tag flat">통과</span></div>
+      <div class="row"><span class="label">R-02 빈값 · 면적 구간 미선택</span><span class="value" style="font-size:15px;">안내 문구 표시</span><span class="tag flat">통과</span></div>
+      <div class="row"><span class="label">R-03 오류 · 0채 구간 선택</span><span class="value" style="font-size:15px;">계산 불가 안내</span><span class="tag flat">통과</span></div>
     </div>
+    <p class="cta-note">배포 주소에서의 재확인(M6-04)은 아직 미확인입니다. 로컬 테스트 기록: <code>docs/test_log.md</code></p>
   </div>
 </section>
 

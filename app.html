@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>미분양 신호 확인 — F-01</title>
+<style>
+  :root{
+    --ink:#12151c; --sub:#5b6472; --line:#e7e9ee;
+    --bg:#ffffff; --bg-alt:#f2f4f7; --down:#c8402f; --pill:#12151c; --pill-ink:#ffffff;
+    --err:#b3261e;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Malgun Gothic",sans-serif;
+    color:var(--ink); background:var(--bg-alt); line-height:1.6;
+  }
+  .wrap{max-width:520px; margin:0 auto; padding:48px 20px 80px;}
+  a.back{color:var(--sub); font-size:14px; text-decoration:none;}
+  h1{font-size:24px; font-weight:800; margin:18px 0 6px;}
+  p.desc{color:var(--sub); font-size:14.5px; margin:0 0 24px;}
+  .card{background:#fff; border:1px solid var(--line); border-radius:20px; padding:24px; margin-bottom:16px;}
+  label{display:block; font-size:13px; font-weight:700; color:var(--sub); margin-bottom:8px;}
+  select{
+    width:100%; padding:14px; font-size:15px; border-radius:12px; border:1px solid var(--line);
+    background:#fff; color:var(--ink); margin-bottom:14px;
+  }
+  .cta{
+    display:inline-flex; align-items:center; justify-content:center; gap:10px; width:100%;
+    background:var(--pill); color:var(--pill-ink); font-weight:700; font-size:16px;
+    padding:14px; border-radius:999px; border:none; cursor:pointer;
+  }
+  .cta:disabled{background:var(--line); color:var(--sub); cursor:default;}
+  #error-msg{color:var(--err); font-size:14px; margin-top:12px; min-height:20px; font-weight:600;}
+  #result .area-label{font-size:13px; color:var(--sub); font-weight:600; margin:0;}
+  #result .rate{font-size:44px; font-weight:800; color:var(--down); margin:6px 0 12px;}
+  table{width:100%; border-collapse:collapse; font-size:14px; margin-bottom:10px;}
+  th,td{border-bottom:1px solid var(--line); padding:8px 4px; text-align:left;}
+  td:last-child, th:last-child{text-align:right;}
+  .source{font-size:12px; color:var(--sub); margin:8px 0 0;}
+  #interest-btn{display:none; margin-top:16px;}
+  .limit{font-size:12px; color:var(--sub); margin-top:20px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="back" href="./index.html">← 랜딩으로</a>
+  <h1>부산 연제구 미분양 신호</h1>
+  <p class="desc">면적 구간을 선택하면 최근 4개월(2026-05~08) 미분양 추이와 변화율을 보여드립니다.</p>
+
+  <div class="card">
+    <label for="area-select">면적 구간</label>
+    <select id="area-select">
+      <option value="">선택하세요</option>
+      <option value="under60">전용 60㎡ 이하 (약 18평 이하)</option>
+      <option value="60to85">전용 60-85㎡ (약 18~26평)</option>
+      <option value="over85">전용 85㎡ 초과 (약 26평 초과)</option>
+    </select>
+    <button class="cta" id="confirm-btn">확인</button>
+    <div id="error-msg"></div>
+    <div id="result"></div>
+    <button class="cta" id="interest-btn">매도 시세 알려주기</button>
+  </div>
+
+  <p class="limit">⚠ 수업 과제 데모입니다. 투자·대출 판단의 근거로 쓸 수 없습니다. 데이터: 부산광역시 연제구 안전도시국 건축과(data.go.kr/data/15030310)</p>
+</div>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

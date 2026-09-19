@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>부산 갈아타기 신호 — 미분양으로 보는 첫 신호</title>
+<style>
+  :root{
+    --ink:#12151c; --sub:#5b6472; --line:#e7e9ee;
+    --bg:#ffffff; --bg-alt:#f2f4f7; --card:#ffffff;
+    --down:#c8402f; --pill:#12151c; --pill-ink:#ffffff;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Malgun Gothic",sans-serif;
+    color:var(--ink); background:var(--bg); line-height:1.6; -webkit-font-smoothing:antialiased;
+  }
+  .sect{padding:88px 20px;}
+  .sect.alt{background:var(--bg-alt);}
+  .wrap{max-width:720px; margin:0 auto;}
+  h1{font-size:clamp(28px,5vw,40px); line-height:1.3; margin:0 0 18px; font-weight:800; letter-spacing:-.01em;}
+  .eyebrow{font-size:13px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--sub); margin:0 0 14px;}
+  h2{font-size:clamp(22px,3.4vw,28px); font-weight:800; line-height:1.35; margin:0 0 12px; letter-spacing:-.01em;}
+  h3{font-size:19px; font-weight:700; margin:0 0 8px;}
+  p{color:var(--sub); margin:0 0 14px; font-size:15.5px;}
+  .hero{padding-top:96px; text-align:center;}
+  .hero p.lead{font-size:17px; color:var(--ink); max-width:520px; margin:0 auto 32px;}
+  .hero h1{max-width:600px; margin-left:auto; margin-right:auto;}
+
+  /* pill CTA — 원형 화살표 아이콘 + 캡슐형 버튼 */
+  .cta{
+    display:inline-flex; align-items:center; gap:12px; background:var(--pill); color:var(--pill-ink);
+    font-weight:700; font-size:16px; padding:8px 8px 8px 24px; border-radius:999px;
+    text-decoration:none; border:none;
+  }
+  .cta .arrow{
+    width:36px; height:36px; border-radius:50%; background:rgba(255,255,255,.18);
+    display:flex; align-items:center; justify-content:center; font-size:16px; flex-shrink:0;
+  }
+  .cta.disabled{background:var(--line); color:var(--sub); cursor:default;}
+  .cta.disabled .arrow{background:rgba(0,0,0,.06); color:var(--sub);}
+  .cta-note{font-size:13px; color:var(--sub); margin-top:14px;}
+
+  /* 카드형 리스트 — 연회색 컨테이너 위에 흰 줄 카드 */
+  .list-card{background:var(--bg-alt); border-radius:24px; padding:14px;}
+  .row{
+    display:flex; align-items:center; justify-content:space-between; gap:12px;
+    background:var(--card); border-radius:14px; padding:16px 18px; margin-bottom:8px;
+  }
+  .row:last-child{margin-bottom:0;}
+  .row .label{font-size:14px; color:var(--sub); font-weight:600;}
+  .row .value{font-size:20px; font-weight:800; color:var(--ink);}
+  .row .value small{font-size:13px; color:var(--sub); font-weight:600; margin-left:4px;}
+  .tag{font-size:12px; font-weight:700; padding:5px 10px; border-radius:999px; background:#f2ecec; color:var(--down); white-space:nowrap;}
+  .tag.flat{background:var(--line); color:var(--sub);}
+
+  .headline-stat{background:var(--card); border:1px solid var(--line); border-radius:24px; padding:32px 28px; margin-bottom:20px;}
+  .big-number{font-size:56px; font-weight:800; color:var(--down); margin:6px 0 4px; letter-spacing:-.02em;}
+  .source{font-size:12.5px; color:var(--sub); margin-top:16px;}
+
+  .flow{display:flex; align-items:stretch; gap:10px; flex-wrap:wrap; margin:22px 0 0;}
+  .flow .step{flex:1; min-width:150px; background:var(--card); border:1px solid var(--line); border-radius:16px; padding:16px; font-size:14px;}
+  .flow .arrow2{align-self:center; font-size:18px; color:var(--sub);}
+
+  .quote{border-left:3px solid var(--ink); padding-left:16px; font-style:italic; margin:18px 0; color:var(--ink); font-size:16px;}
+
+  ul{color:var(--sub); padding-left:20px; margin:0;}
+  li{margin-bottom:10px;}
+
+  .placeholder{border:1.5px dashed var(--line); border-radius:16px; padding:24px; color:var(--sub); font-size:14px; text-align:center; background:var(--card);}
+
+  footer.sect{padding:40px 20px;}
+  footer small{display:block; color:var(--sub); font-size:12px; margin-bottom:6px;}
+</style>
+</head>
+<body>
+
+<!-- ① 한 줄 소개 -->
+<section class="sect hero">
+  <div class="wrap">
+    <p class="eyebrow">부산 갈아타기 신호</p>
+    <h1>부산 특정 구의 신규 분양 미분양 재고 변화를<br>한 화면에서 보여드립니다.</h1>
+    <p class="lead">갈아탈 대상·시점을 정하는 첫 번째 신호를 얻으세요.</p>
+    <a class="cta" href="#f01">미분양 신호 보러가기 <span class="arrow">↓</span></a>
+  </div>
+</section>
+
+<!-- ② 데이터로 본 문제 -->
+<section class="sect alt">
+  <div class="wrap">
+    <p class="eyebrow">데이터로 본 문제</p>
+    <h2>연제구 전용 60-85㎡ 미분양,<br>4개월 새 이렇게 바뀌었습니다.</h2>
+
+    <div class="headline-stat">
+      <div class="label" style="font-size:14px;color:var(--sub);font-weight:600;">2026-05 → 2026-08 기간 변화</div>
+      <div class="big-number">−80.5%</div>
+      <p style="margin:0;">해석: 매수 쪽(신규 분양) 재고가 4개월 새 크게 줄었습니다.</p>
+    </div>
+
+    <div class="list-card">
+      <div class="row"><span class="label">2026-05</span><span class="value">190채 <small>기준</small></span></div>
+      <div class="row"><span class="label">2026-06</span><span class="value">190채</span><span class="tag flat">0.0%</span></div>
+      <div class="row"><span class="label">2026-07</span><span class="value">189채</span><span class="tag flat">−0.5%</span></div>
+      <div class="row"><span class="label">2026-08</span><span class="value">37채</span><span class="tag">−80.4%</span></div>
+    </div>
+
+    <p style="margin-top:18px;"><strong>한계</strong>: 감소 원인(매수 심리 회복인지 공급 자체 감소인지)과 내 집을 얼마에 팔 수 있는지(매도 시세)는 이 데이터에 없습니다.</p>
+    <p class="source">출처: 부산광역시 연제구 안전도시국 건축과 · data.go.kr/data/15030310 · 기준: 2026-05~2026-08(월별)</p>
+  </div>
+</section>
+
+<!-- ③ 누구의 어떤 순간 -->
+<section class="sect">
+  <div class="wrap">
+    <p class="eyebrow">누구의 어떤 순간</p>
+    <h2>50대 유주택 직장인,<br>갈아탈 때를 고민하다</h2>
+    <p>지금 집에서 8년째 거주 중이고, 15년을 채우기 전에 적절한 시점에 갈아타고 싶습니다. 분산투자와 예적금으로 재정을 관리하는 신중한 성향이라, 감이 아니라 숫자로 확인한 뒤 움직이고 싶어 합니다.</p>
+    <div class="quote">"숫자로 확인되지 않으면, 저는 움직이지 않아요."</div>
+    <p>하지만 국토교통부 실거래가·공공데이터포털·법원경매정보를 각각 따로 찾아보다가, 결국 <strong>"내 집은 얼마에 팔릴까?"</strong>라는 질문 앞에서 막힙니다 — 지금 이 화면도 아직 그 답은 주지 못합니다.</p>
+  </div>
+</section>
+
+<!-- ④ F-01 시연 버튼 -->
+<section class="sect alt" id="f01">
+  <div class="wrap">
+    <p class="eyebrow">지금 확인할 수 있는 것</p>
+    <h2>기존 방식보다 한 화면 빠르게</h2>
+    <div class="flow">
+      <div class="step">기존<br>여러 사이트를 각각 열어 형식도 다른 값을 비교</div>
+      <div class="arrow2">→</div>
+      <div class="step">오늘<br>연제구 미분양 4개월 추이를 한 화면에서 확인</div>
+      <div class="arrow2">→</div>
+      <div class="step">얻는 것<br>갈아타기 1차 판단 신호</div>
+    </div>
+    <div style="margin-top:28px;">
+      <a class="cta disabled" aria-disabled="true">F-01 앱 화면 준비 중 <span class="arrow">…</span></a>
+      <p class="cta-note">완성되면 이 버튼이 <code>app.html</code>로 연결됩니다(M6-02에서 연결).</p>
+    </div>
+  </div>
+</section>
+
+<!-- ⑤ 테스트 결과 (자리만) -->
+<section class="sect">
+  <div class="wrap">
+    <p class="eyebrow">테스트 결과</p>
+    <h2>정상·빈값·오류, 세 가지로 확인합니다</h2>
+    <div class="placeholder">
+      R-01(정상)·R-02(빈값)·R-03(오류) 테스트는 아직 실행 전입니다.<br>
+      M6-02 구현 후 <code>test_log.md</code>에 실제 결과가 채워집니다.
+    </div>
+  </div>
+</section>
+
+<!-- ⑥ 활용 방안 · 현업 적용 · 다음 개선 -->
+<section class="sect alt">
+  <div class="wrap">
+    <p class="eyebrow">활용 방안 · 다음 개선</p>
+    <h2>오늘의 데모, 그다음</h2>
+    <ul>
+      <li><strong>활용 방안</strong>: 부동산 갈아타기를 고민하는 지인·커뮤니티에 링크를 공유해 첫 반응을 확인합니다.</li>
+      <li><strong>현업 적용(가설)</strong>: 이사업체·중개사와 제휴해, 관심을 보인 사용자를 리드로 연결하는 방식을 검토할 수 있습니다.</li>
+      <li><strong>다음 개선</strong>: 매도 시세(기존 주택) 데이터 연결, 연제구 외 다른 구로 확장, 경매 정보 체크리스트 추가.</li>
+    </ul>
+  </div>
+</section>
+
+<footer class="sect">
+  <div class="wrap">
+    <small>⚠ 수업 과제 데모입니다. 투자·대출 판단의 근거로 쓸 수 없습니다.</small>
+    <small>데이터 출처: 부산광역시 연제구 안전도시국 건축과(data.go.kr/data/15030310) · 이 페이지는 서버·외부 API 없이 정적 파일로만 동작합니다.</small>
+  </div>
+</footer>
+
+</body>
+</html>
